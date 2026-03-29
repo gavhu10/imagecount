@@ -1,5 +1,6 @@
 import db
 import secrets
+from flask import Request
 
 
 class ImageError(Exception):
@@ -10,7 +11,7 @@ class ImageError(Exception):
         super().__init__(self.message)
 
 
-def create():
+def create() -> str:
     """Creates a new image and returns the token for it"""
 
     id = secrets.token_urlsafe(16)
@@ -22,7 +23,7 @@ def create():
     return id
 
 
-def image_count(id):
+def image_count(id: str) -> int:
     """Gets the count for an image"""
 
     with db.DBConnection() as conn:
@@ -34,7 +35,7 @@ def image_count(id):
     return ret[0]
 
 
-def get_and_update(id, request):
+def get_and_update(id: str, request: Request) -> int:
     """Get and update the value for an image"""
 
     increment(id, str(request.user_agent))  # TODO record ip?
@@ -42,7 +43,7 @@ def get_and_update(id, request):
     return image_count(id)
 
 
-def increment(id, useragent):
+def increment(id: str, useragent: str) -> None:
     """Update the value of an image"""
 
     with db.DBConnection() as conn:

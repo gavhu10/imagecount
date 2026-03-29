@@ -10,7 +10,7 @@ import db
 
 @click.command("init")
 @click.option("-r", "--reset", is_flag=True)
-def init_db_command(reset):
+def init_db_command(reset: bool):
     """Clear existing data and create new tables."""
 
     db.init_db(reset)

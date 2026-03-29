@@ -16,17 +16,17 @@ class DBConnection:
     """
 
     def __init__(self):
-        self.conn = None
-        self._created_here = False
+        self.conn: sqlite3.Connection
+        self._created_here: bool = False
 
-    def __enter__(self):
+    def __enter__(self) -> sqlite3.Connection:
         self.conn = sqlite3.connect(
             f.current_app.config["DATABASE"], detect_types=sqlite3.PARSE_DECLTYPES
         )
         self.conn.row_factory = sqlite3.Row
         return self.conn
 
-    def __exit__(self, exc_type, exc, tb):
+    def __exit__(self, *_) -> bool:
         try:
             self.conn.close()
         except Exception:
@@ -34,7 +34,7 @@ class DBConnection:
         return False
 
 
-def __close_db(e=None):
+def __close_db(e=None) -> None:
     """If this request connected to the database, close the connection."""
     db = f.g.pop("db", None)
 
@@ -42,7 +42,7 @@ def __close_db(e=None):
         db.close()
 
 
-def init_db(reset):
+def init_db(reset: bool) -> None:
     """Clear existing data and create new tables."""
 
     if reset or not isfile(f.current_app.config["DATABASE"]):
@@ -63,7 +63,7 @@ sqlite3.register_converter(
 )  # TODO set time zone
 
 
-def init_app(app):
+def init_app(app: f.Flask) -> None:
     """Register database functions with the Flask app. This is called by
     the application factory.
     """

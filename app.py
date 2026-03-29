@@ -42,10 +42,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/")
-    def main():
-        return "welcome"
-
     db.init_app(app)
 
     app.cli.add_command(init_db_command)

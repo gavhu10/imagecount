@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS badges;
 
 CREATE TABLE
     badges (
-        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        id TEXT UNIQUE NOT NULL,
         count INTEGER NOT NULL
     );
 

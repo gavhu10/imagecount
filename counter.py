@@ -1,5 +1,6 @@
 import anybadge
 import flask as f
+from typing import Any
 
 import backend as bk
 
@@ -19,14 +20,25 @@ def create():
 @counter.route("img")
 def img():
 
-    
     if f.request.args.get("id") is None:
         f.abort(404)
+
+    color = f.request.args.get("color", "")
+
+    if not bk.valid_color(color):
+        color = "teal"
 
     try:
         times = bk.get_and_update(f.request.args["id"], f.request)
     except bk.ImageError as e:
         return e.message, 403
-    
-    badge = anybadge.Badge(label='viewed', value=times, default_color='teal')
-    return str(badge)
+
+    style_args: dict[str, Any] = bk.style(f.request.args.get("style", ""))
+    badge = anybadge.Badge(
+        label="viewed", value=times, default_color=color, **style_args
+    )
+
+    resp = f.make_response(str(badge))
+    resp.headers["Content-Type"] = "image/svg+xml"
+
+    return resp

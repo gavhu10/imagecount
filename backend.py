@@ -1,6 +1,7 @@
 import db
 import secrets
 from flask import Request
+import anybadge
 
 
 class ImageError(Exception):
@@ -52,3 +53,23 @@ def increment(id: str, useragent: str) -> None:
             "INSERT into requests (badge_id, useragent) VALUES (?, ?)", (id, useragent)
         )
         conn.commit()
+
+
+def valid_color(color: str) -> bool:
+    """Checks if the color is valid"""
+
+    if color in anybadge.Color.__members__.keys():
+        return True
+
+    if color.startswith("#"):
+        return True
+
+    return False
+
+
+def style(style: str) -> dict[str, str | int]:
+
+    if style == "gitlab-scoped":
+        return {"style": style, "num_padding_chars": 1}
+
+    return {"style": "default"}

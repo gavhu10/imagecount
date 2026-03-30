@@ -2,26 +2,4 @@
 
 Imagecount is a times visited display and a simple analytics device. It has the familiar look of sheids.io, but is written in Python. Here is an example: (note: this image is static as I do not have an instance online yet)
 
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="66" height="20">
-    <linearGradient id="b" x2="0" y2="100%">
-        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-        <stop offset="1" stop-opacity=".1"/>
-    </linearGradient>
-    <mask id="anybadge_2">
-        <rect width="66" height="20" rx="3" fill="#fff"/>
-    </mask>
-    <g mask="url(#anybadge_2)">
-        <path fill="#555" d="M0 0h49v20H0z"/>
-        <path fill="#008080" d="M49 0h17v20H49z"/>
-        <path fill="url(#b)" d="M0 0h66v20H0z"/>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="25.5" y="15" fill="#010101" fill-opacity=".3">viewed</text>
-        <text x="24.5" y="14">viewed</text>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="58.5" y="15" fill="#010101" fill-opacity=".3">0</text>
-        <text x="57.5" y="14">0</text>
-    </g>
-</svg>
+![badge](img.svg)

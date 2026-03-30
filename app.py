@@ -6,6 +6,8 @@ import flask as f
 
 import counter
 import db
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 
 @click.command("init")
@@ -47,6 +49,24 @@ def create_app(test_config=None):
     app.cli.add_command(init_db_command)
 
     app.register_blueprint(counter.counter)
+
+    try:
+        from redislite import StrictRedis  # type: ignore
+    except ImportError:
+        limiter = Limiter(
+            get_remote_address,
+            app=app,
+            default_limits=["30 per minute"],
+            storage_uri=f"memory://",
+        )
+    else:
+        redis = StrictRedis("/dev/shm/cache.rdb")
+        limiter = Limiter(
+            get_remote_address,
+            app=app,
+            default_limits=["30 per minute"],
+            storage_uri=f"redis+unix://{redis.socket_file}",
+        )
 
     return app
 

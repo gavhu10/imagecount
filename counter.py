@@ -1,7 +1,7 @@
+import anybadge
 import flask as f
 
 import backend as bk
-
 
 counter = f.Blueprint("counter", __name__, url_prefix="/")
 
@@ -18,12 +18,15 @@ def create():
 
 @counter.route("img")
 def img():
-    if not f.request.args["id"]:
+
+    
+    if f.request.args.get("id") is None:
         f.abort(404)
 
     try:
-        return "Times gotten: " + str(
-            bk.get_and_update(f.request.args["id"], f.request)
-        )
+        times = bk.get_and_update(f.request.args["id"], f.request)
     except bk.ImageError as e:
         return e.message, 403
+    
+    badge = anybadge.Badge(label='viewed', value=times, default_color='teal')
+    return str(badge)

@@ -2,7 +2,7 @@
 
 Imagecount is a times visited display and a simple analytics device. It has the familiar look of sheids.io, but is written in Python. Here is an example:
 
-![badge](https://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw)
+![badge](http://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw)
 
 There are some options to configure your badge too.
 

@@ -41,18 +41,18 @@ def image_count(id: str) -> int:
 def get_and_update(id: str, request: Request) -> int:
     """Get and update the value for an image"""
 
-    increment(id, str(request.user_agent))  # TODO record ip?
+    increment(id, str(request.user_agent) + str(request.remote_addr))
 
     return image_count(id)
 
 
-def increment(id: str, useragent: str) -> None:
+def increment(id: str, userdata: str) -> None:
     """Update the value of an image"""
 
     with db.DBConnection() as conn:
         conn.execute("UPDATE badges SET count = count + 1 WHERE id = (?)", (id,))
         conn.execute(
-            "INSERT into requests (badge_id, useragent) VALUES (?, ?)", (id, useragent)
+            "INSERT into requests (badge_id, useragent) VALUES (?, ?)", (id, userdata)
         )
         conn.commit()
 

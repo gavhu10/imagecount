@@ -28,11 +28,17 @@ def img():
 
     if not bk.valid_color(color):
         color = "teal"
-
-    try:
-        times = bk.get_and_update(f.request.args["id"], f.request)
-    except bk.ImageError as e:
-        return e.message, 403
+    
+    if f.request.args.get("prev") == "true":
+        try:
+            times = bk.image_count(f.request.args["id"])
+        except bk.ImageError as e:
+            return e.message, 403
+    else:
+        try:
+            times = bk.get_and_update(f.request.args["id"], f.request)
+        except bk.ImageError as e:
+            return e.message, 403
 
     style_args: dict[str, Any] = bk.style(f.request.args.get("style", ""))
     badge = anybadge.Badge(

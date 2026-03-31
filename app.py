@@ -29,6 +29,7 @@ def create_app(test_config=None):
         SESSION_COOKIE_SECURE=True,
         SESSION_COOKIE_HTTPONLY=True,
         SESSION_COOKIE_SAMESITE="Lax",
+        SEND_FILE_MAX_AGE_DEFAULT=0,
     )
 
     if test_config is None:

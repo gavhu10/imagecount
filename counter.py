@@ -47,5 +47,6 @@ def img():
 
     resp = f.make_response(str(badge))
     resp.headers["Content-Type"] = "image/svg+xml"
+    resp.headers["Cache-Control"] = "no-cache"
 
     return resp

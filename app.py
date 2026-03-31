@@ -3,11 +3,11 @@ import os
 
 import click
 import flask as f
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 import counter
 import db
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 
 
 @click.command("init")

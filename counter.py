@@ -1,6 +1,7 @@
+from typing import Any
+
 import anybadge
 import flask as f
-from typing import Any
 
 import backend as bk
 

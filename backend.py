@@ -1,7 +1,9 @@
-import db
 import secrets
-from flask import Request
+
 import anybadge
+from flask import Request
+
+import db
 
 
 class ImageError(Exception):

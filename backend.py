@@ -60,7 +60,7 @@ def increment(id: str, userdata: str) -> None:
 def valid_color(color: str) -> bool:
     """Checks if the color is valid"""
 
-    if color in anybadge.Color.__members__.keys():
+    if color.upper() in anybadge.Color.__members__.keys():
         return True
 
     if color.startswith("#"):

@@ -6,13 +6,13 @@ Imagecount is a times visited display and a simple analytics device. It has the 
 
 There are some options to configure your badge too.
 
-You can configure colors with any html/svg color or use one of the many preconfigured anybadge colors documented [here](https://github.com/jongracecox/anybadge/blob/master/README.md#Colors). The default color is teal, but here is how you make it red.
+You can configure colors with any html/svg color or use one of the many preconfigured anybadge colors documented [here](https://github.com/jongracecox/anybadge/blob/master/README.md#Colors). The default color is teal, but here is how you make it bright red.
 
 ```md
-![badge](https://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw&color=red)
+![badge](https://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw&color=bright_red)
 ```
 
-![badge](https://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw&color=red&prev=true)
+![badge](https://imagecount.pythonanywhere.com/img?id=pSS_jCZ_S7JvgYZyuJjZyw&color=bright_red&prev=true)
 
 
 Also available obtions are `style` and `prev`. The available styles are (so far) "default" and "gitlab-scoped" which looks like this:

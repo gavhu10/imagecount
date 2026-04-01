@@ -24,7 +24,7 @@ Also available obtions are `style` and `prev`. The available styles are (so far)
 
 Also availible are graphs. To view a graph, exchange the img in the url with graph.
 
-![graph](http://imagecount.pythonanywhere.com/graph?id=pSS_jCZ_S7JvgYZyuJjZyw)
+![graph](https://imagecount.pythonanywhere.com/graph?id=pSS_jCZ_S7JvgYZyuJjZyw)
 
 ## Credits
 

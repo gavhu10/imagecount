@@ -100,7 +100,9 @@ def get_graph(id: str) -> io.BytesIO:
 
     dates = get_data(id)
 
-    plt.switch_backend("Agg")  # Necessary for web servers
+    plt.switch_backend("Agg")
+    plt.style.use("Solarize_Light2")
+
     fig, ax = plt.subplots()
     ax.plot(dates, range(len(dates)))  # pyright: ignore[reportArgumentType]
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
@@ -111,7 +113,6 @@ def get_graph(id: str) -> io.BytesIO:
     plt.ylabel("Event Count")
     plt.grid(True)
 
-    # 2. Save to a virtual file in RAM
     buf = io.BytesIO()
     plt.savefig(buf, format="png", bbox_inches="tight")
 

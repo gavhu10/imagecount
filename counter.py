@@ -65,4 +65,7 @@ def graph():
     except bk.ImageError as e:
         return e.message, 400
 
-    return f.Response(data, mimetype="image/png")
+    resp = f.make_response(f.Response(data, mimetype="image/png"))
+    resp.headers["Cache-Control"] = "no-cache"
+
+    return resp

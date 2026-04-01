@@ -22,6 +22,10 @@ Also available obtions are `style` and `prev`. The available styles are (so far)
 
 `prev` allows you to see what a badge looks like without affecting its count or if you want to fetch an image multiple times on a page.
 
+Also availible are graphs. To view a graph, exchange the img in the url with graph.
+
+![graph](http://imagecount.pythonanywhere.com/graph?id=pSS_jCZ_S7JvgYZyuJjZyw)
+
 ## Credits
 
 This project is made with Flask, Flask-Limiter, anybadge and uses the tools made by astral.

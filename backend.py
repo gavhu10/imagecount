@@ -104,7 +104,7 @@ def get_graph(id: str) -> io.BytesIO:
     plt.style.use("Solarize_Light2")
 
     fig, ax = plt.subplots()
-    ax.plot(dates, range(len(dates)))  # pyright: ignore[reportArgumentType]
+    plt.hist(dates, bins=50) # type: ignore
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
     fig.autofmt_xdate()
 

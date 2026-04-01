@@ -28,7 +28,7 @@ def img():
 
     if not bk.valid_color(color):
         color = "teal"
-    
+
     if f.request.args.get("prev") == "true":
         try:
             times = bk.image_count(f.request.args["id"])
@@ -50,3 +50,19 @@ def img():
     resp.headers["Cache-Control"] = "no-cache"
 
     return resp
+
+
+@counter.route("graph")
+def graph():
+
+    try:
+        id = f.request.args["id"]
+    except IndexError:
+        f.abort(404)
+
+    try:
+        data = bk.get_graph(id).getvalue()
+    except bk.ImageError as e:
+        return e.message, 400
+
+    return f.Response(data, mimetype="image/png")

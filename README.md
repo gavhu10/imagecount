@@ -29,3 +29,4 @@ Also availible are graphs. To view a graph, exchange the img in the url with gra
 ## Credits
 
 This project is made with Flask, Flask-Limiter, anybadge and uses the tools made by astral.
+The css is from [sindresorhus/github-markdown-css](https://github.com/sindresorhus/github-markdown-css/)

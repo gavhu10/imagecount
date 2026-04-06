@@ -101,10 +101,9 @@ def get_graph(id: str) -> io.BytesIO:
     dates = get_data(id)
 
     plt.switch_backend("Agg")
-    plt.style.use("Solarize_Light2")
 
     fig, ax = plt.subplots()
-    plt.hist(dates, bins=50) # type: ignore
+    plt.hist(dates, bins=50)  # type: ignore
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
     fig.autofmt_xdate()
 

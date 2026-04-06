@@ -6,6 +6,7 @@ import flask as f
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+from backend import create
 import counter
 import db
 
@@ -16,7 +17,8 @@ def init_db_command(reset: bool):
     """Clear existing data and create new tables."""
 
     db.init_db(reset)
-
+    with f.current_app.open_instance_resource("config.py", "w") as file:
+        file.write(f'LINK = "{create()}"')
 
 def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""

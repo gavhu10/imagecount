@@ -11,7 +11,7 @@ counter = f.Blueprint("counter", __name__, url_prefix="/")
 @counter.route("", methods=["GET", "POST"])
 def create():
     if f.request.method == "GET":
-        return f.render_template("create.html")
+        return f.render_template("create.html", link=f.current_app.config.get("LINK"))
 
     id = bk.create()
 

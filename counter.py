@@ -40,10 +40,8 @@ def img():
         except bk.ImageError as e:
             return e.message, 403
 
-    style_args: dict[str, Any] = bk.style(f.request.args.get("style", ""))
-    badge = anybadge.Badge(
-        label="viewed", value=times, default_color=color, **style_args
-    )
+    style_args: dict[str, Any] = bk.style(f.request.args.get("style", ""), times)
+    badge = anybadge.Badge(default_color=color, **style_args)
 
     resp = f.make_response(str(badge))
     resp.headers["Content-Type"] = "image/svg+xml"

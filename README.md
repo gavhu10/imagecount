@@ -16,11 +16,15 @@ The default color is teal, but here is how you make it bright red.
 ![badge](https://imagecount.pythonanywhere.com/img?id=LsOo7V2rk8byPNrWrmuJlA&color=bright_red&prev=true)
 
 
-Also available obtions are `style` and `prev`. The available styles are (so far) "default" and "gitlab-scoped" which looks like this:
+Also available obtions are `style` and `prev`. The available styles are "default", "for-the-badge" and "gitlab-scoped" which look like this:
 
 ![badge](https://imagecount.pythonanywhere.com/img?id=LsOo7V2rk8byPNrWrmuJlA&style=gitlab-scoped&prev=true)
 
-`prev` allows you to see what a badge looks like without affecting its count or if you want to fetch an image multiple times on a page. Please note, however, that it may or may not be in sync with the actuall count.
+![badge](https://imagecount.pythonanywhere.com/img?id=LsOo7V2rk8byPNrWrmuJlA&style=for-the-badge&prev=true)
+
+
+The `prev` option allows you to see what a badge looks like without affecting its count or if you want to fetch an image multiple times on a page.
+Please note, however, that it may or may not be in sync with the actual count if the browser does not get them at the same time.
 
 Also availible are graphs. To view a graph, exchange the img in the url with graph.
 
